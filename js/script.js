@@ -180,6 +180,7 @@ window.onload = function () {
 };
 
 // Dados pessoais
+
 async function fill() {
   let data = await LoadData("info-cliente.json");
   document.getElementById ("name"). value = data.name;
@@ -195,15 +196,35 @@ async function fill() {
 }
 
 // Book Wishlist
+var numbook = 0; // Variável global para contar o número de livros adicionados
 
-var numbook = 0;
 function addNewBook() {
-  numbook++;
-  idbook = "book" + numbook;
-  newbook =  '<div id="'+idbook+'" class="input-group mb-1"><span class="form-control">';
-  newbook += document.getElementById("newbook").value + '<span></div>';
+  const bookInput = document.getElementById("newbook"); 
+  const bookValue = bookInput.value.trim(); // Remove espaços em branco no início e no fim do texto
+
+  // Verifica se o campo está preenchido
+  if (bookValue === "") {
+    alert("Por favor, adicione o nome do livro antes de submeter."); // Window alert
+    return; // Sai da funcao sem adicionar
+  }
+  
+  numbook++; // Contador de livros
+  const idbook = "book" + numbook; // Cria um ID único para cada livro
+  
+  // Cria o HTML
+  const newbook = `
+    <div id="${idbook}" class="input-group mb-1"> 
+      <span class="form-control">${bookValue}</span>
+    </div>
+  `;
+
+  // Adiciona o novo livro à lista no elemento com o ID "books"
   document.getElementById("books").innerHTML += newbook;
+
+  bookInput.value = ""; // Limpa o campo de input depois de adicionar o livro
 }
+
+
 
 
 const elemImages = document.getElementById("image-container"); // Seleciona a div pelo ID
