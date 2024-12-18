@@ -58,18 +58,18 @@
       effect: "fade",
     });
 
-    var roomSwiper = new Swiper(".room-swiper", {
+    var boxSwiper = new Swiper(".boxes-swiper", {
       slidesPerView: 3,
       spaceBetween: 20,
-      pagination: {
-        el: ".room-pagination",
-        clickable: true,
+      navigation: {
+        nextEl: ".boxes-slider-button-next",
+        prevEl: ".boxes-slider-button-prev",
       },
       breakpoints: {
         0: {
           slidesPerView: 1,
         },
-        1024: {
+        768: {
           slidesPerView: 2,
         },
         1280: {
@@ -77,34 +77,79 @@
         },
       },
     });
+ 
 
     var gallerySwiper = new Swiper(".gallery-swiper", {
       effect: "fade",
+      loop:true,
       navigation: {
-        nextEl: ".main-slider-button-next",
-        prevEl: ".main-slider-button-prev",
+        nextEl: ".gallery-slider-button-next",
+        prevEl: ".gallery-slider-button-prev",
       },
     });
 
-    var thumbSlider = new Swiper(".product-thumbnail-slider", {
-      autoplay: true,
+    var productSwiper = new Swiper(".product-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
       loop: true,
-      spaceBetween: 8,
-      slidesPerView: 4,
-      freeMode: true,
-      watchSlidesProgress: true,
-    });
+      navigation: {
+        nextEl: ".product-slider-button-next",
+        prevEl: ".product-slider-button-prev",
+    }});
 
-    var largeSlider = new Swiper(".product-large-slider", {
-      autoplay: true,
-      loop: true,
-      spaceBetween: 10,
-      effect: 'fade',
-      thumbs: {
-        swiper: thumbSlider,
-      },
-    });
+    
+  
+   // VALUES SWIPER
 
+ function initSwiperValues() {
+  document
+    .querySelectorAll(".init-swiper-values")
+    .forEach(function(swiperElement) {
+      let config = JSON.parse(
+        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+      );
+
+      const dotsContainer = swiperElement
+        .closest("section")
+        .querySelector(".js-custom-dots");
+      if (!dotsContainer) return;
+
+      const customDots = dotsContainer.querySelectorAll("a");
+
+      delete config.pagination;
+
+      const swiperInstance = new Swiper(swiperElement, config);
+
+      swiperInstance.on("slideChange", function() {
+        updateSwiperValuesPagination(swiperInstance, customDots);
+      });
+
+      customDots.forEach((dot, index) => {
+        dot.addEventListener("click", function(e) {
+          e.preventDefault();
+          swiperInstance.slideToLoop(index);
+          updateSwiperValuesPagination(swiperInstance, customDots);
+        });
+      });
+
+      updateSwiperValuesPagination(swiperInstance, customDots);
+    });
+}
+
+function updateSwiperValuesPagination(swiperInstance, customDots) {
+  const activeIndex = swiperInstance.realIndex;
+  customDots.forEach((dot, index) => {
+    if (index === activeIndex) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
+  });
+}
+
+window.addEventListener("load", initSwiperValues);
+
+    
     // Preloader
     initPreloader();
 
@@ -117,8 +162,192 @@
       once: true,
     });
 
-    // DateTimePicker
-    new DateTimePickerComponent.DatePicker('select-arrival-date');
-    new DateTimePickerComponent.DatePicker('select-departure-date');
   });
 })(jQuery);
+
+
+
+
+// TRABALHO DE GRUPO 2
+
+// Pop-up Cookies
+function closePopup() {
+  document.getElementById('popup-cookies').style.display = "none";
+}
+
+window.onload = function () {
+  document.getElementById('popup-cookies').style.display = "flex";
+};
+
+// Dados pessoais
+async function fill() {
+  let data = await LoadData("info-cliente.json");
+  document.getElementById ("name"). value = data.name;
+  document.getElementById ("home"). value = data.home.street + " . " + data.home.number;
+  document.getElementById ("email"). value = data.email;
+  document.getElementById ("phone"). value = data.phone;
+
+  async function LoadData(file) {
+    let obj = await fetch(file);
+    let data = await obj.json();
+    return data;
+  }
+}
+
+// Book Wishlist
+
+var numbook = 0;
+function addNewBook() {
+  numbook++;
+  idbook = "book" + numbook;
+  newbook =  '<div id="'+idbook+'" class="input-group mb-1"><span class="form-control">';
+  newbook += document.getElementById("newbook").value + '<span></div>';
+  document.getElementById("books").innerHTML += newbook;
+}
+
+
+const elemImages = document.getElementById("image-container"); // Seleciona a div pelo ID
+
+// Função para criar uma imagem dentro de um <picture>
+const createImage = (image) => {
+    const elemPicture = document.createElement("picture");
+    elemPicture.classList.add("picture-suggestion");
+
+    const elemImg = document.createElement("img");
+    elemImg.classList.add("img-suggestion");
+    elemImg.setAttribute("src", image);
+
+    elemPicture.appendChild(elemImg); // Adiciona a imagem ao <picture>
+    return elemPicture;
+};
+
+// Função para carregar as imagens do JSON
+const loadImages = (images) => {
+    images.forEach((image) => {
+        const imageElement = createImage(image.image); // Cria um elemento de imagem
+        elemImages.appendChild(imageElement); // Adiciona a imagem à div
+    });
+};
+
+// Fetch para obter o JSON com os caminhos das imagens
+fetch("images.json")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(loadImages)
+
+// JAVASCRIP PARA LOGIN
+
+var user = "joana_masgalos"
+var pass = "jana1234"
+
+function login()
+{
+  let usr = document.getElementById("user").value;
+  let pwd = document.getElementById("pass").value;
+
+  if (usr == user && pwd == pass)
+    {
+  window.location.href = "my_account.html";
+}
+  else
+  {
+    alert("Hmmm! Parece que te enganaste, tenta novamente");
+    location.reload();
+  }
+}
+
+// SIGN UP 
+
+function signup()
+{
+  let usr = document.getElementById("user").value;
+  let eml = document.getElementById("email").value;
+  let pwd = document.getElementById("pass").value;
+  let pwd_confirm = document.getElementById("pass_confirm").value;
+
+// VALIDAR OS CAMPOS PREENCHIDOS
+if(pwd !== pwd_confirm) {
+  alert("UPS! Alguma coisa está diferentes nas tuas password's, tenta novamente");
+  return;
+}
+else
+{
+  alert("Conta criada com sucesso! Entra agora no clube mais cool de leitura!");
+window.location.href = "login.html";
+}
+}
+
+//CONTACTOS HEADER EM JSON
+
+async function fillHeader() {
+  let data = await LoadData("contacts2.json");
+
+  document.getElementById("contacts2-address").innerHTML = `
+  <svg class="color me-1" width="15" height="15">
+    <use xlink:href="#location"></use>
+  </svg>
+  ${data.address}
+`;
+  document.getElementById("contacts2-phone").innerHTML = `
+    <svg class="color me-1" width="15" height="15">
+      <use xlink:href="#phone"></use>
+    </svg>
+    ${data.phone}
+  `;
+  document.getElementById("contacts2-email").innerHTML = `
+  <svg class="color me-1" width="15" height="15">
+    <use xlink:href="#email"></use>
+  </svg>
+  ${data.email}
+`;
+}
+
+async function LoadData(file) {
+  let obj = await fetch(file);
+  let data = await obj.json();
+  return data;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  fillHeader();
+})
+
+
+// CONTACTOS FOOTER EM JSON
+
+async function fill() {
+  let data = await LoadData("contacts.json");
+
+  document.getElementById("contacts-address").innerHTML = `
+  <svg class="color me-1" width="15" height="15">
+    <use xlink:href="#location"></use>
+  </svg>
+  ${data.address}
+`;
+  document.getElementById("contacts-phone").innerHTML = `
+    <svg class="color me-1" width="15" height="15">
+      <use xlink:href="#phone"></use>
+    </svg>
+    ${data.phone}
+  `;
+  document.getElementById("contacts-email").innerHTML = `
+  <svg class="color me-1" width="15" height="15">
+    <use xlink:href="#email"></use>
+  </svg>
+  ${data.email}
+`;
+}
+
+async function LoadData(file) {
+  let obj = await fetch(file);
+  let data = await obj.json();
+  return data;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  fill();
+})

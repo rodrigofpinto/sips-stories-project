@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sips&Stories</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="images/logo_ico.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+
+  <!--Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+  <!--vendor css -->
+  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+
+  <!--Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <!--Link AOS's CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Style Sheet -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Sora:wght@100..800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+<!--ÍCONES-->
+<svg style="display: none;">
+  <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 16 16">
+    <path
+      d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+  </symbol>
+
+  <symbol id="location" viewBox="0 0 24 24">
+    <path fill="currentColor" fill-rule="evenodd"
+      d="M3.25 10.143C3.25 5.244 7.155 1.25 12 1.25c4.845 0 8.75 3.994 8.75 8.893c0 2.365-.674 4.905-1.866 7.099c-1.19 2.191-2.928 4.095-5.103 5.112a4.2 4.2 0 0 1-3.562 0c-2.175-1.017-3.913-2.92-5.103-5.112c-1.192-2.194-1.866-4.734-1.866-7.099M12 2.75c-3.992 0-7.25 3.297-7.25 7.393c0 2.097.603 4.392 1.684 6.383c1.082 1.993 2.612 3.624 4.42 4.469a2.7 2.7 0 0 0 2.291 0c1.809-.845 3.339-2.476 4.421-4.469c1.081-1.99 1.684-4.286 1.684-6.383c0-4.096-3.258-7.393-7.25-7.393m0 5a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5M8.25 10a3.75 3.75 0 1 1 7.5 0a3.75 3.75 0 0 1-7.5 0"
+      clip-rule="evenodd" />
+  </symbol>
+  <symbol id="phone" viewBox="0 0 24 24">
+    <path fill="currentColor" fill-rule="evenodd"
+      d="M6.007 3.407c1.68-1.68 4.516-1.552 5.686.544l.649 1.163c.763 1.368.438 3.095-.68 4.227a.63.63 0 0 0-.104.337c-.013.256.078.849.997 1.767c.918.918 1.51 1.01 1.767.997a.63.63 0 0 0 .337-.104c1.131-1.118 2.859-1.443 4.227-.68l1.163.65c2.096 1.17 2.224 4.004.544 5.685c-.899.898-2.093 1.697-3.498 1.75c-2.08.079-5.536-.459-8.958-3.88c-3.421-3.422-3.959-6.877-3.88-8.958c.053-1.405.852-2.6 1.75-3.498m4.376 1.275c-.6-1.074-2.21-1.32-3.315-.214c-.775.775-1.28 1.63-1.312 2.493c-.066 1.736.363 4.762 3.442 7.84c3.08 3.08 6.105 3.509 7.84 3.443c.863-.033 1.72-.537 2.494-1.312c1.106-1.106.86-2.716-.214-3.315l-1.163-.649c-.723-.403-1.74-.266-2.453.448c-.07.07-.516.486-1.307.524c-.81.04-1.791-.324-2.9-1.434c-1.111-1.11-1.475-2.091-1.435-2.902c.038-.791.455-1.237.524-1.307c.714-.713.851-1.729.448-2.452z"
+      clip-rule="evenodd" />
+  </symbol>
+  <symbol id="email" viewBox="0 0 24 24">
+    <path fill="currentColor" fill-rule="evenodd"
+      d="M9.944 3.25h4.112c1.838 0 3.294 0 4.433.153c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87c.153 1.14.153 2.595.153 4.433v.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153H9.944c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433v-.112c0-1.838 0-3.294.153-4.433c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238c1.14-.153 2.595-.153 4.433-.153M5.71 4.89c-1.006.135-1.586.389-2.01.812c-.422.423-.676 1.003-.811 2.009c-.138 1.028-.14 2.382-.14 4.289c0 1.907.002 3.262.14 4.29c.135 1.005.389 1.585.812 2.008c.423.423 1.003.677 2.009.812c1.028.138 2.382.14 4.289.14h4c1.907 0 3.262-.002 4.29-.14c1.005-.135 1.585-.389 2.008-.812c.423-.423.677-1.003.812-2.009c.138-1.028.14-2.382.14-4.289c0-1.907-.002-3.261-.14-4.29c-.135-1.005-.389-1.585-.812-2.008c-.423-.423-1.003-.677-2.009-.812c-1.027-.138-2.382-.14-4.289-.14h-4c-1.907 0-3.261.002-4.29.14m-.287 2.63a.75.75 0 0 1 1.056-.096L8.64 9.223c.933.777 1.58 1.315 2.128 1.667c.529.34.888.455 1.233.455c.345 0 .704-.114 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 1 1 .96 1.153l-2.196 1.83c-.887.74-1.605 1.338-2.24 1.746c-.66.425-1.303.693-2.044.693c-.741 0-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.577a.75.75 0 0 1-.096-1.057"
+      clip-rule="evenodd" />
+  </symbol>
+ 
+  <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
+    <path fill="currentColor"
+      d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+  </symbol>
+
+  <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 32 32">
+    <path fill="currentColor"
+      d="M29.41 9.26a3.5 3.5 0 0 0-2.47-2.47C24.76 6.2 16 6.2 16 6.2s-8.76 0-10.94.59a3.5 3.5 0 0 0-2.47 2.47A36.13 36.13 0 0 0 2 16a36.13 36.13 0 0 0 .59 6.74a3.5 3.5 0 0 0 2.47 2.47c2.18.59 10.94.59 10.94.59s8.76 0 10.94-.59a3.5 3.5 0 0 0 2.47-2.47A36.13 36.13 0 0 0 30 16a36.13 36.13 0 0 0-.59-6.74ZM13.2 20.2v-8.4l7.27 4.2Z" />
+  </symbol>
+
+  <symbol xmlns="http://www.w3.org/2000/svg" id="tiktok" viewBox="0 0 256 256">
+    <path fill="currentColor" d="M208.69,98.13a55.52,55.52,0,0,1-34.88-12.06v52.6A66.42,66.42,0,1,1,120,72.16V117a32.2,32.2,0,0,0-11.18-2.11,32,32,0,1,0,32,32V35.31h32.67A55.48,55.48,0,0,0,208.69,98.13Z"/>
+  </symbol>
+  
+  <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 256 256">
+    <path fill="currentColor"
+      d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z" />
+  </symbol>
+
+<symbol id="dados_pessoais" fill="#000000" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 27.9999 51.9063 C 41.0546 51.9063 51.9063 41.0781 51.9063 28 C 51.9063 14.9453 41.0312 4.0937 27.9765 4.0937 C 14.8983 4.0937 4.0937 14.9453 4.0937 28 C 4.0937 41.0781 14.9218 51.9063 27.9999 51.9063 Z M 27.9999 35.9922 C 20.9452 35.9922 15.5077 38.5 13.1405 41.3125 C 9.9999 37.7968 8.1014 33.1328 8.1014 28 C 8.1014 16.9609 16.9140 8.0781 27.9765 8.0781 C 39.0155 8.0781 47.8983 16.9609 47.9219 28 C 47.9219 33.1563 46.0234 37.8203 42.8593 41.3359 C 40.4921 38.5234 35.0546 35.9922 27.9999 35.9922 Z M 27.9999 32.0078 C 32.4999 32.0547 36.0390 28.2109 36.0390 23.1719 C 36.0390 18.4375 32.4765 14.5 27.9999 14.5 C 23.4999 14.5 19.9140 18.4375 19.9609 23.1719 C 19.9843 28.2109 23.4765 31.9609 27.9999 32.0078 Z"/>
+</symbol>
+
+<symbol id="notificaçoes" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.0002 19C15.0002 20.6569 13.6571 22 12.0002 22C10.3434 22 9.00025 20.6569 9.00025 19M13.7968 6.23856C14.2322 5.78864 14.5002 5.17562 14.5002 4.5C14.5002 3.11929 13.381 2 12.0002 2C10.6195 2 9.50025 3.11929 9.50025 4.5C9.50025 5.17562 9.76825 5.78864 10.2037 6.23856M2.54707 8.32296C2.53272 6.87161 3.3152 5.51631 4.57928 4.80306M21.4534 8.32296C21.4678 6.87161 20.6853 5.51631 19.4212 4.80306M18.0002 11.2C18.0002 9.82087 17.3681 8.49823 16.2429 7.52304C15.1177 6.54786 13.5915 6 12.0002 6C10.4089 6 8.88283 6.54786 7.75761 7.52304C6.63239 8.49823 6.00025 9.82087 6.00025 11.2C6.00025 13.4818 5.43438 15.1506 4.72831 16.3447C3.92359 17.7056 3.52122 18.3861 3.53711 18.5486C3.55529 18.7346 3.58876 18.7933 3.73959 18.9036C3.87142 19 4.53376 19 5.85844 19H18.1421C19.4667 19 20.1291 19 20.2609 18.9036C20.4117 18.7933 20.4452 18.7346 20.4634 18.5486C20.4793 18.3861 20.0769 17.7056 19.2722 16.3447C18.5661 15.1506 18.0002 13.4818 18.0002 11.2Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="encomendas" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 11V6C9 4.34315 10.3431 3 12 3C13.6569 3 15 4.34315 15 6V10.9673M10.4 21H13.6C15.8402 21 16.9603 21 17.816 20.564C18.5686 20.1805 19.1805 19.5686 19.564 18.816C20 17.9603 20 16.8402 20 14.6V12.2C20 11.0799 20 10.5198 19.782 10.092C19.5903 9.71569 19.2843 9.40973 18.908 9.21799C18.4802 9 17.9201 9 16.8 9H7.2C6.0799 9 5.51984 9 5.09202 9.21799C4.71569 9.40973 4.40973 9.71569 4.21799 10.092C4 10.5198 4 11.0799 4 12.2V14.6C4 16.8402 4 17.9603 4.43597 18.816C4.81947 19.5686 5.43139 20.1805 6.18404 20.564C7.03968 21 8.15979 21 10.4 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="wishlist" fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.509,28.871a1,1,0,0,0,1.01-.016L16,23.715l8.481,5.14A1,1,0,0,0,26,28V5a1,1,0,0,0-1-1H7A1,1,0,0,0,6,5V28A1,1,0,0,0,6.509,28.871ZM8,6H24V26.225L16.519,21.69a1,1,0,0,0-1.037,0L8,26.225Zm8.21,13.28a1,1,0,0,0,.588-.191A16.842,16.842,0,0,0,20.42,15.5a4.863,4.863,0,0,0,1.209-3.973,3.373,3.373,0,0,0-3.475-2.551A3.291,3.291,0,0,0,16,10.068a3.291,3.291,0,0,0-2.154-1.087,3.363,3.363,0,0,0-3.475,2.551,4.864,4.864,0,0,0,1.209,3.973A16.851,16.851,0,0,0,15.2,19.089a1,1,0,0,0,.588.191Zm-3.024-4.968a3.089,3.089,0,0,1-.863-2.341,1.365,1.365,0,0,1,1.271-1c.028,0,.058,0,.087,0a1.358,1.358,0,0,1,1.175,1.208,1,1,0,0,0,1,.945h.295a1,1,0,0,0,1-.945,1.283,1.283,0,0,1,2.532-.211,3.088,3.088,0,0,1-.863,2.341A14.83,14.83,0,0,1,16,17.188,14.841,14.841,0,0,1,13.186,14.313Z"/>
+</symbol>
+
+<symbol id="definiçoes" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.255 4.18806C9.84269 5.17755 8.68655 5.62456 7.71327 5.17535C6.10289 4.4321 4.4321 6.10289 5.17535 7.71327C5.62456 8.68655 5.17755 9.84269 4.18806 10.255C2.63693 10.9013 2.63693 13.0987 4.18806 13.745C5.17755 14.1573 5.62456 15.3135 5.17535 16.2867C4.4321 17.8971 6.10289 19.5679 7.71327 18.8246C8.68655 18.3754 9.84269 18.8224 10.255 19.8119C10.9013 21.3631 13.0987 21.3631 13.745 19.8119C14.1573 18.8224 15.3135 18.3754 16.2867 18.8246C17.8971 19.5679 19.5679 17.8971 18.8246 16.2867C18.3754 15.3135 18.8224 14.1573 19.8119 13.745C21.3631 13.0987 21.3631 10.9013 19.8119 10.255C18.8224 9.84269 18.3754 8.68655 18.8246 7.71327C19.5679 6.10289 17.8971 4.4321 16.2867 5.17535C15.3135 5.62456 14.1573 5.17755 13.745 4.18806C13.0987 2.63693 10.9013 2.63693 10.255 4.18806Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="#000000" stroke-width="2"/>
+</symbol>
+
+<symbol id="comunidade" fill="#000000" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <path d="M336,256c-20.56,0-40.44-9.18-56-25.84-15.13-16.25-24.37-37.92-26-61-1.74-24.62,5.77-47.26,21.14-63.76S312,80,336,80c23.83,0,45.38,9.06,60.7,25.52,15.47,16.62,23,39.22,21.26,63.63h0c-1.67,23.11-10.9,44.77-26,61C376.44,246.82,356.57,256,336,256Zm66-88h0Z"/><path d="M467.83,432H204.18a27.71,27.71,0,0,1-22-10.67,30.22,30.22,0,0,1-5.26-25.79c8.42-33.81,29.28-61.85,60.32-81.08C264.79,297.4,299.86,288,336,288c36.85,0,71,9,98.71,26.05,31.11,19.13,52,47.33,60.38,81.55a30.27,30.27,0,0,1-5.32,25.78A27.68,27.68,0,0,1,467.83,432Z"/><path d="M147,260c-35.19,0-66.13-32.72-69-72.93C76.58,166.47,83,147.42,96,133.45,108.86,119.62,127,112,147,112s38,7.66,50.93,21.57c13.1,14.08,19.5,33.09,18,53.52C213.06,227.29,182.13,260,147,260Z"/><path d="M212.66,291.45c-17.59-8.6-40.42-12.9-65.65-12.9-29.46,0-58.07,7.68-80.57,21.62C40.93,316,23.77,339.05,16.84,366.88a27.39,27.39,0,0,0,4.79,23.36A25.32,25.32,0,0,0,41.72,400h111a8,8,0,0,0,7.87-6.57c.11-.63.25-1.26.41-1.88,8.48-34.06,28.35-62.84,57.71-83.82a8,8,0,0,0-.63-13.39C216.51,293.42,214.71,292.45,212.66,291.45Z"/>
+</symbol>
+
+</svg>
+
+<div class="preloader">
+    <div class="loader"></div>
+  </div>
+
+<!--HEADER-->
+<header id="header">
+  <nav class="contact-info bg-secondary py-1">
+    <div class="container-fluid padding-side">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <ul class="info d-flex flex-wrap alilist-unstyled m-0">
+          <!--MORADA-->
+          <li id="contacts2-address" class="location text-capitalize d-flex align-items-center me-4" style="font-size: 14px;">
+            <svg class="color me-1" width="15" height="15">
+              <use xlink:href="#location"></use>
+            </svg>
+          </li>
+          <!--TELEFONE-->
+          <li id="contacts2-phone" class="phone d-flex align-items-center me-4" style="font-size: 14px;">
+            <svg class="color me-1" width="15" height="15">
+              <use xlink:href="#phone"></use>
+            </svg>
+          </li>
+          <!--EMAIL-->
+          <li id="contacts2-email" class="time d-flex align-items-center me-4" style="font-size: 14px;">
+            <svg class="color me-1" width="15" height="15">
+              <use xlink:href="#email"></use>
+            </svg>
+          </li>
+        </ul>
+        <ul class="social-links d-flex just list-unstyled m-0 ">
+          <!--ICON FACEBOOK-->
+          <li class="social">
+            <a href="https://www.facebook.com/">
+              <svg class="social" width="16" height="16">
+                <use xlink:href="#facebook"></use>
+              </svg>
+            </a>
+          <!--ICON INSTA-->
+          <li class="social ms-4">
+            <a href="https://www.instagram.com/">
+              <svg class="social" width="16" height="16">
+                <use xlink:href="#instagram"></use>
+              </svg>
+            </a>
+          </li>
+           <!--ICON TIKTOK-->
+           <li class="social ms-4">
+            <a href="https://www.tiktok.com/@sipsndstories">
+              <svg class="social" width="16" height="16">
+                <use xlink:href="#tiktok"></use>
+              </svg>
+            </a>
+          </li>
+          <!--ICON YOUTUBE-->
+          <li class="social ms-4">
+            <a href="https://www.youtube.com/">
+              <svg class="social" width="16" height="16">
+                <use xlink:href="#youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav id="primary-header" class="navbar navbar-expand-lg py-4">
+    <div class="container-fluid padding-side">
+      <div class="d-flex justify-content-between align-items-center w-100">
+      <!--LOGO-->  
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" class="logo img" height="70rem">
+        </a>
+      <!--ÍCONE ABRIR MENU HAMBURGUER-->   
+        <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
+          <svg class="navbar-icon" width="60" height="60">
+            <use xlink:href="#navbar-icon"></use>
+          </svg>
+        </button>
+      <!--ÍCONE FECHAR MENU HAMBURGUER-->   
+        <div class="header-bottom offcanvas offcanvas-end " id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+          <div class="offcanvas-header px-4 pb-0">
+            <button type="button" class="btn-close btn-close-black mt-2" data-bs-dismiss="offcanvas"
+              aria-label="Close" data-bs-target="#bdNavbar"></button>
+          </div>
+      <!--LOGIN EM MOBILE-->     
+          <div class="offcanvas-body align-items-center justify-content-center">
+            <div class="search d-block d-lg-none m-5">
+              <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+                <li class="nav-item px-3">
+                <a class="nav-link p-0" href="index.html">Login</a>
+              </li>
+              </ul>
+            </div>
+      <!--MENU-->       
+            <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+              <li class="nav-item px-3">
+                <a class="nav-link active p-0" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="product.html">Boxes</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="index.html">Café</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="sobre_nos.html">Sobre Nós</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="contactos.html">Contactos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--LOGIN EM DESKTOP--> 
+        <div class="d-lg-block d-none">
+          <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+            <li class="nav-item px-3">
+            <a class="nav-link p-0" href="login.html">Login</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+      <!--FORMULÁRIO SIGN UP-->
+<section>
+    <div class="login-container container padding-side align-items-center">
+        <h3 class="border-bottom p-2">Sign up</h3>
+        <!--INTRODUÇÃO DO USERNAME-->
+        <div class="from-outline mb-3">
+            <label>Nome de utilizador
+                <input type="text" id="user" class="from-control"/>
+            </label>
+        </div>
+        <!--INTRODUÇÃO DO EMAIL-->
+        <div class="from-outline mb-3">
+            <label>Email
+                <input type="text" id="email" class="from-control"/>
+            </label>
+         </div>
+        <!--INTRODUÇÃO DA PASSWORD-->
+        <div class="form-outline mb-3 mt-3">
+            <label>Password
+                <input type="password" id="pass" class="form-control"/>
+            </label>
+        </div>
+             <!--INTRODUÇÃO DA RETIFICAÇÃO DA PASSWORD-->
+        <div class="form-outline mb-3 mt-3">
+            <label>Password
+                <input type="password" id="pass_confirm" class="form-control"/>
+            </label>
+        </div>
+        <!--BOTÃO PARA SUBMETER-->
+        <button type="button" class="btn btn-primary btn-block mb4" onclick="signup()"> Criar conta</button>
+      </div>
+    </div>
+    </section>
+
+<!--FOOTER-->
+<section id="footer" class="px-5">
+    <hr class="text-black p-0">
+    <div class="container-fluid p-3" data-aos="fade-up">
+      <footer class="row d-flex justify-content-between align-items-start">        
+        <div class="col-md-3">
+          <a href="index.html" class="p-0"><img src="images/logo.png" alt="logo-footer" class="img-fluid justify-content-center" width="50px"></a>          
+          <p>Sips&Stories é mais do que uma subscrição, é uma comunidade.</p>
+          <ul class="social-links d-flex list-unstyled">
+            <li><a href="https://www.facebook.com/"><svg class="social me-3" width="20" height="20"><use xlink:href="#facebook"></use></svg></a></li>
+            <li><a href="https://www.instagram.com/"><svg class="social me-3" width="20" height="20"><use xlink:href="#instagram"></use></svg></a></li>
+            <li><a href="https://www.tiktok.com/@sipsndstories"><svg class="social me-3" width="20" height="20"><use xlink:href="#tiktok"></use></svg></a></li>
+            <li><a href="https://www.youtube.com/"><svg class="social me-3" width="20" height="20"><use xlink:href="#youtube"></use></svg></a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-3">
+          <h4 class="title-footer fw-normal">Produtos</h4>
+          <ul class="nav flex-column">
+            <li><a href="product.html" class="p-0">Boxes</a></li>
+            <li><a href="#" class="p-0">Cafés</a></li>
+            <li><a href="#" class="p-0">Livros</a></li>
+            <li><a href="#" class="p-0">Merchandise</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h4 class="title-footer fw-normal">Sobre</h4>
+          <ul class="nav flex-column">
+            <li><a href="sobre_nos.html" class="p-0">A nossa história</a></li>
+            <li><a href="#" class="p-0">Termos e Condições</a></li>
+            <li><a href="#" class="p-0">Políticas de Privacidade</a></li>
+            <li><a href="#" class="p-0">FAQ</a></li>
+          </ul>
+        </div>
+  
+       <div class="col-md-3">
+          <h4 class="title-footer fw-normal">Blog</h4>
+          <ul class="nav flex-column">
+            <li><a href="#" class="p-0">Curiosidades sobre o café</a></li>
+            <li><a href="#" class="p-0">Descobre novos autores</a></li>
+            <li><a href="#" class="p-0">Os livros do momento</a></li>
+            <li><a href="#" class="p-0">Benefícios do café para a saúde</a></li>
+          </ul>
+        </div>
+      </footer>
+    </section> 
+ 
+  <!--CONTACTOS-->  
+  <section class="contact-info bg-secondary" style="padding-bottom:0">
+    <div class="container-fluid padding-side">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <ul class="info d-flex flex-wrap list-unstyled m-0">
+            <!--MORADA-->
+            <li id="contacts-address" class="location text-capitalize d-flex align-items-center me-4" style="font-size: 14px;">
+              <svg class="color me-1" width="15" height="15">
+                <use xlink:href="#location"></use>
+              </svg>
+            </li>
+          <!--TELEFONE-->
+          <li id="contacts-phone" class="phone d-flex align-items-center me-4" style="font-size: 14px;">
+            <svg class="color me-1" width="15" height="15">
+              <use xlink:href="#phone"></use>
+            </svg>
+          </li>
+          <!--EMAIL-->
+          <li id="contacts-email" class="time d-flex align-items-center me-4" style="font-size: 14px;">
+            <svg class="color me-1" width="15" height="15">
+              <use xlink:href="#email"></use>
+            </svg>
+          </li>
+        </ul>
+        <!--COPYRIGHT-->
+        <ul class="copyright d-flex just list-unstyled m-0 ">
+          <li class="d-flex align-items-center me-4 m-0 pb-0" style="font-size: 14px;">
+            <p class="m-0">&copy; Copyright 2024 Sips&Stories</p>
+          </li>
+        </ul>
+      </div>
+    </div>      
+  </section>
+    
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>   
+    <script src="script.js"></script> 
+</body>
+</html>
