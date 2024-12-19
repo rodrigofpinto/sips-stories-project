@@ -5,26 +5,26 @@
         {
             "Name": "Box Ação",
             "Price": 31.99,
-            "Coffee": "Red Eye Coffee e Dark Roast Coffee",
+            "Coffee": "Red Eye Coffee e Dark Roast Coffee"
             "Image": "Ação"
         },
         {
             "Name": "Box Saúde e Bem-estar",
             "Price": 31.99,
-            "Coffee": "Bulletproof Coffee",
+            "Coffee": "Bulletproof Coffee"
             "Image": "Saúde e Bem-estar"
         },
         {
             "Name": "Box Fantasia",
             "Price": 31.99,
-            "Coffee": "Irish Coffee e Café da Etiópia",
+            "Coffee": "Irish Coffee e Café da Etiópia"
             "Image": "Fantasia"
         },
         {
             "Name": "Box Poesia",
             "Price": 31.99,
-            "Coffee": "Milk and honey latte e French press coffee",
+            "Coffee": "Milk and honey latte e French press coffee"
             "Image": "Poesia"
-        }
+        },
     ]
 }

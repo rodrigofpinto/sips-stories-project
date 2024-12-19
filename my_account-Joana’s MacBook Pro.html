@@ -112,7 +112,7 @@
   </div>
 
 <!--HEADER-->
-<header id="header1">
+<header id="header">
   <nav class="contact-info bg-secondary py-1">
     <div class="container-fluid padding-side">
       <div class="d-flex flex-wrap justify-content-between align-items-center">
@@ -172,33 +172,157 @@
       </div>
     </div>
   </nav>
-  
+  <nav id="primary-header" class="navbar navbar-expand-lg py-4">
+    <div class="container-fluid padding-side">
+      <div class="d-flex justify-content-between align-items-center w-100">
+      <!--LOGO-->  
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" class="logo img" height="70rem">
+        </a>
+      <!--ÍCONE ABRIR MENU HAMBURGUER-->   
+        <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
+          <svg class="navbar-icon" width="60" height="60">
+            <use xlink:href="#navbar-icon"></use>
+          </svg>
+        </button>
+      <!--ÍCONE FECHAR MENU HAMBURGUER-->   
+        <div class="header-bottom offcanvas offcanvas-end " id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+          <div class="offcanvas-header px-4 pb-0">
+            <button type="button" class="btn-close btn-close-black mt-2" data-bs-dismiss="offcanvas"
+              aria-label="Close" data-bs-target="#bdNavbar"></button>
+          </div>
+      <!--LOGIN EM MOBILE-->     
+          <div class="offcanvas-body align-items-center justify-content-center">
+            <div class="search d-block d-lg-none m-5">
+              <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+                <li class="nav-item px-3">
+                <a class="nav-link p-0" href="index.html">Login</a>
+              </li>
+              </ul>
+            </div>
+      <!--MENU-->       
+            <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+              <li class="nav-item px-3">
+                <a class="nav-link active p-0" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="product.html">Boxes</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="index.html">Café</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="sobre_nos.html">Sobre Nós</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="contactos.html">Contactos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--LOGIN EM DESKTOP--> 
+        <div class="d-lg-block d-none">
+          <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+            <li class="nav-item px-3">
+            <a class="nav-link p-0" href="login.html">Login</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
 </header>
 
+<!--SIDEBAR-->
+<section class="container-fluid row d-flex">
+        <aside class="sidebar col-md-4">
+          <ul class="list-unstyled">
+            <a href="#content">
+            <li class="active">
+                <svg class="icon color" width="30" height="30">
+                    <use xlink:href="#dados_pessoais"></use>
+                </svg>
+            Dados pessoais
+            </li>
+            </a>
 
-<!--LOGIN-->
-<div class="login-container container padding-side align-items-center">
-    <h3 class="border-bottom p-2">Login</h3>
-    <!--INTRODUÇÃO DO USERNAME-->
-    <div class="from-outline mb-3">
-        <label>Nome de utilizador
-            <input type="text" id="user" class="from-control"/>
-        </label>
+            <a href="notifications.html">
+            <li> 
+                <svg class="icon color" width="30" height="30">
+                    <use xlink:href="#notificaçoes"></use>
+                </svg>
+            Notificações
+            </li>
+            </a>
+
+            <a href="orders.html">
+            <li>
+                <svg class="icon color" width="30" height="30">
+                    <use xlink:href="#encomendas"></use>
+                </svg>
+            As minhas encomendas
+            </li>
+            </a>
+
+            <a href="wishlist.html">
+            <li> 
+                <svg class="icon color" width="30" height="30">
+                    <use xlink:href="#wishlist"></use>
+                </svg>
+            Book wishlist
+            </li>
+            </a>
+
+            <a href="#">
+            <li>
+                <svg class="icon color" width="30" height="30">
+                    <use xlink:href="#definiçoes"></use>
+                </svg>
+            Definições
+            </li>
+            </a>
+
+            <a href="comunidade.html">
+            <li>
+                <svg class="icon color" width="30" height="30">
+                    <use xlink:href="#comunidade"></use>
+                </svg>
+            Comunidade Sips&Talks
+            </li>
+            </a>
+          </ul>
+        </aside>
+
+<div id="content" class="content col-md-8 pt-0 text-md-start text-center">
+<h1 class="display-5">Dados Pessoais
+  <img src="images_tg2/INFO.png" width= 70 class="align-items-center pb-4 m-0"> 
+</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="dpname">Nome</label>
+        <input id="dpname" type="text" class="form-control" placeholder="Adicionar nome">
+      </div>  
+      <div class="col-md-6">
+        <label for="dphome">Morada</label>
+        <input id="dphome" type="text" class="form-control" placeholder="Adicionar morada">
+      </div>
     </div>
-    <!--INTRODUÇÃO DA PASSWORD-->
-    <div class="form-outline mb-3">
-        <label>Password
-            <input type="password" id="pass" class="form-control"/>
-        </label>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="dpemail">E-mail</label>
+      <input id="email" type="text" class="form-control" placeholder="Adicionar e-mail">
     </div>
-    <!--BOTÃO PARA SUBMETER-->
-    <button type="button" class="btn btn-primary btn-block mb4" onclick="login()"> Sign in</button>
-    
-    <p> Don't have an account? </a> <a href="signup.html" class="signup">Sign up!</a></p>
+
+    <div class="col-md-6">
+      <label for="phone">Telemõvel</label>
+      <input id="phone" type="text" class="form-control" placeholder="Adicionar telemóvel ">
+    </div>
+
+   <button class="btn btn-primary mt-2" onClick="fill()">Adicionar Informação</button>
   </div>
 </div>
-
-
+</section>
 
 <!--FOOTER-->
 <section id="footer" class="px-5">
@@ -282,13 +406,14 @@
     </div>      
   </section>
     
+
+
     <script src="js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>   
-    <script src="script.js"></script> 
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>    
 </body>
 </html>
